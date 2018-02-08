@@ -5,7 +5,9 @@
 	<script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 	<script type="text/javascript">
 	
-			$('p, h3, li').hoverfunction(){
+		// you need document.ready
+		$(document).ready(function(){
+			$('p, h3, li').hover(function(){ // was missing a (
 				$(this).css('color', 'white');
 			}, function(){
 				$(this).css('color', 'black');
@@ -13,20 +15,23 @@
 
 			$('a').click(function(){
 				alert("we don't actually serve pizza...");
-			});
+			}); // was missing a }
 
 			$('img').click(function(){
 				$(this).slideUp();
-			);
+			});
 
 			$('h5').click(function(){
-				$('img').slide Down();
+				$('img').slideDown(); // no spaces in functio names
 			});
 
 			$('button').click(function(){
-				var result = $('input:checked').value()  
+				var result = $('input:checked').val(); // it's .val, not .value()
 				alert("Thank you for your input, we like " + result + " too!");
 			});	
+
+		});
+			
 
 	</script>
 </head>
